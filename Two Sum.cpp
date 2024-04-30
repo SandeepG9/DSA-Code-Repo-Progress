@@ -17,6 +17,37 @@ int main()
     return 0;
 }
 
+// Optimized Code
+
+#include <iostream>
+#include<map>
+using namespace std;
+int main()
+{
+    int arr[5]= {2,6,5,8,11},n=5;
+    int target = 14;
+    map<int,int> data;
+    int remaining_value;
+    int arr2[1];
+    
+    // optimized code for two sum problem
+    for(int i=0;i<n;i++)
+    {
+        remaining_value = target-arr[i];
+        auto it = data.find(remaining_value);
+        if(it!=data.end())
+        {
+            arr[0] = i;
+            arr[1] = it->second;
+        }
+        data[arr[i]] = i;
+    }
+    // printing indexes
+    cout<<arr2[0]<<" "<<arr2[1];
+    return 0;
+}
+
+
 
 
 
